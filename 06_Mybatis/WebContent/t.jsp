@@ -9,6 +9,6 @@
 </head>
 
 <body>
-test
+저는 seals 계정을 생성했습니다.
 </body>
 </html>
