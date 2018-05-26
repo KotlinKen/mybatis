@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-허경희가 작업하는 공간에서 새로운 파일을 만들어보았습니다.
+clone으로 깃허브에서 프로젝트 다운받고 그것으로부터 다시 프로젝트를 열었다롱. 
+복잡하다오옹옹옹 다운받고 나서 java build path 설정을 꼭 해줘야 한다옹 
+
 </body>
 </html>
