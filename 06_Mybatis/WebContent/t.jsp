@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
 저는 seals 계정을 생성했습니다.
 
 
@@ -17,7 +18,10 @@
 
 병합을 테스트 하기위한 테스트
 
+<<<<<<< HEAD
 
 읭 뭐지 
+=======
+>>>>>>> branch 'seals' of https://github.com/KotlinKen/mybatis.git
 </body>
 </html>
