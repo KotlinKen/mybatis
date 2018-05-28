@@ -3,12 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> </title>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-test ddddd
+깃 허브 적응중ㅋㅎ
 </body>
 </html>
