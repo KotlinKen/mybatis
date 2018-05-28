@@ -7,27 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.mybatis.model.service.MybatisService;
+
 /**
  * Servlet implementation class MybatisTestServlet1
  */
 @WebServlet("/test1.do")
 public class MybatisTestServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MybatisTestServlet1() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private MybatisService mybatisService = new MybatisService();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int result = new MybatisService().insertStudent();
+		int result = mybatisService.insertStudent();
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
