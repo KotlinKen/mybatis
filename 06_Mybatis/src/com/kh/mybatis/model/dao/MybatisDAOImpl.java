@@ -63,4 +63,10 @@ public class MybatisDAOImpl implements MybatisDAO {
 		return session.selectOne("mybatis.selectStudentCount");
 	}
 
+	@Override
+	public String selectStudentName(SqlSession session, int studentNo) {
+		
+		return session.selectOne("mybatis.selectStudentName", studentNo);
+	}
+
 }

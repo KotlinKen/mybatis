@@ -21,4 +21,6 @@ public interface MybatisDAO {
 
 	int selectStudentCount(SqlSession session);
 
+	String selectStudentName(SqlSession session, int studentNo);
+
 }

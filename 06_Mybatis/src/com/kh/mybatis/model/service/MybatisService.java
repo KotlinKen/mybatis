@@ -12,4 +12,5 @@ public interface MybatisService {
 	int insertStudent(Map<String, String> map);
 	int insertStudent(HashMap<String, Student> map);
 	int selectStudentCount();
+	String selectStudentName(int studentNo);
 }

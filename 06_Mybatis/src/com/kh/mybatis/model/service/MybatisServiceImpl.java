@@ -126,4 +126,14 @@ public class MybatisServiceImpl implements MybatisService {
 		return count;	
 	}
 
+	@Override
+	public String selectStudentName(int studentNo) {
+		SqlSession session = getSqlSession();
+		
+		String studentName = mybatisDAO.selectStudentName(session, studentNo);
+		session.close();
+		
+		return studentName;	
+	}
+
 }
