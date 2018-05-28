@@ -3,7 +3,6 @@ package com.kh.mybatis.model.service;
 import java.io.IOException;
 import java.io.InputStream;
 
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -23,34 +22,31 @@ public class MybatisServiceImpl implements MybatisService {
 		
 		try {
 			InputStream is = Resources.getResourceAsStream(resource);
-			
 			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 			SqlSessionFactory factory = builder.build(is);
-			
-			//auto-commit 여부를 매개인자로 전달
+			// auto-commit 여부를 매개인자로 전달.
 			session = factory.openSession(false);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-				
+		
 		return session;
-
-
 	}
-   
-   @Override
-   public int insertStudent() {
-      SqlSession session = getSqlSession();
-      int result = mybatisDAO.insertStudent(session);
-      
-      
-      if(result>0) session.commit();
-      else session.rollback();
-      session.close();
-      
-      
-      return result;
-   }
+
+	@Override
+	public int insertStudent() {
+		SqlSession session = getSqlSession();
+		
+		int result = mybatisDAO.insertStudent(session);
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;		
+	}
 
 }

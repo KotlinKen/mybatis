@@ -21,8 +21,11 @@ public class MybatisTestServlet1 extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html, charset=utf-8");
 		int result = mybatisService.insertStudent();
-		String msg = result > 0 ? "test1성공! " : "test1 실패! ";
+		System.out.println("test");
+		String msg = result > 0 ? "test1 succed" : "test1 faild ";
 		
 		response.getWriter().append("Served at: ")
 							.append(request.getContextPath())
