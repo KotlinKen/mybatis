@@ -1,4 +1,5 @@
 package com.kh.mybatis.model.dao;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -46,6 +47,20 @@ public class MybatisDAOImpl implements MybatisDAO {
 		
 		
 		return result;
+	}
+
+	@Override
+	public int insertStudent(SqlSession session, HashMap<String, Student> map) {
+		int result = session.insert("mybatis.insertStudent3", map);
+		
+		System.out.println("result3@DAO= " + result);
+		
+		return result;
+	}
+
+	@Override
+	public int selectStudentCount(SqlSession session) {
+		return session.selectOne("mybatis.selectStudentCount");
 	}
 
 }

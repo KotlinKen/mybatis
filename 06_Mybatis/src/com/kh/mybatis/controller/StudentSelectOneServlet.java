@@ -7,17 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.mybatis.model.service.MybatisService;
+import com.kh.mybatis.model.service.MybatisServiceImpl;
+
 /**
- * Servlet implementation class StudentMap2EnrollServlet
+ * Servlet implementation class StudentSelectOneServlet
  */
-@WebServlet("/student/studentMap2Enroll.do")
-public class StudentMap2EnrollServlet extends HttpServlet {
+@WebServlet("/student/selectOne.do")
+public class StudentSelectOneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private MybatisService mybatisService = new MybatisServiceImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentMap2EnrollServlet() {
+    public StudentSelectOneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +30,13 @@ public class StudentMap2EnrollServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/mybatis/studentMap2Enroll.jsp").forward(request, response);
+		//1.비지니스로직 : 전체학생수 구하기
+		int count = mybatisService.selectStudentCount();
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		request.setAttribute("count", count);
+		request.getRequestDispatcher("/WEB-INF/views/mybatis/selectOne.jsp").forward(request, response);
+		
 	}
 
 	/**

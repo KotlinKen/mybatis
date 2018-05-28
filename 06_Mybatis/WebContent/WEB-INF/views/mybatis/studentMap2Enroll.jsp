@@ -19,8 +19,8 @@
 
 <div id="enroll-container">
 	<h2>학생등록</h2>
-	<h3>여기는 Map 용</h3>
-	<form action="${pageContext.request.contextPath}/student/studentMapEnrollEnd.do">
+	<h3>여기는 Map2 Map&lt;String, Student></h3>
+	<form action="${pageContext.request.contextPath}/student/studentMap2EnrollEnd.do">
 		<table id="tbl-student">
 			<tr>
 				<th>학생이름</th>

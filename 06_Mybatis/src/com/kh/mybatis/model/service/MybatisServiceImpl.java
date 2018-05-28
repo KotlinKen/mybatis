@@ -2,6 +2,7 @@ package com.kh.mybatis.model.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -97,6 +98,32 @@ public class MybatisServiceImpl implements MybatisService {
 		session.close();
 		
 		return result;	
+	}
+
+	@Override
+	public int insertStudent(HashMap<String, Student> map) {
+		SqlSession session = getSqlSession();
+		
+		int result = mybatisDAO.insertStudent(session, map);
+		
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;	
+	}
+
+	@Override
+	public int selectStudentCount() {
+		SqlSession session = getSqlSession();
+		
+		int count = mybatisDAO.selectStudentCount(session);
+		session.close();
+		
+		return count;	
 	}
 
 }

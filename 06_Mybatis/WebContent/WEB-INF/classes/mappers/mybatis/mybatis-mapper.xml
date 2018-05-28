@@ -14,4 +14,11 @@
 	<insert id="insertStudent2" parameterType="map">
 		insert into student values(seq_student.nextval, #{studentName}, #{studentTel}, #{studentEmail}, #{studentAddr}, default)
 	</insert>	
+	
+	<insert id="insertStudent3" parameterType="hashmap">
+		insert into student values(seq_student.nextval, #{student.studentName}, #{student.studentTel}, #{student.studentEmail}, #{student.studentAddr}, default)
+	</insert>
+	<select id="selectStudentCount" resultType="_int">
+		select count(*) from student
+	</select>	
 </mapper>
