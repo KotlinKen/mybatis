@@ -27,7 +27,7 @@ public class MybatisTestServlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+		int result = new MybatisService().insertStudent();
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
