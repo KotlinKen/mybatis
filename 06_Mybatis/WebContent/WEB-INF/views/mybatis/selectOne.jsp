@@ -11,7 +11,7 @@
 <body>
 	<div id="student-container">
 		<h2>학생정보검색</h2>
-		<p>총 학생수는 ${count }</p>
+		<p>총 학생수는 ${count }입니다.</p>
 	</div>
 
 </body>
