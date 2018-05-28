@@ -2,6 +2,7 @@ package com.kh.mybatis.model.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.kh.mybatis.model.dao.MybatisDAO;
 import com.kh.mybatis.model.dao.MybatisDAOImpl;
+import com.kh.mybatis.model.vo.Student;
 
 
 public class MybatisServiceImpl implements MybatisService {
@@ -47,6 +49,54 @@ public class MybatisServiceImpl implements MybatisService {
 		session.close();
 		
 		return result;		
+	}
+
+	@Override
+	public int insertStudent(String name) {
+		SqlSession session = getSqlSession();
+		
+		int result = mybatisDAO.insertStudent(session, name);
+		
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;	
+	}
+
+	@Override
+	public int insertStudent(Student student) {
+		SqlSession session = getSqlSession();
+		
+		int result = mybatisDAO.insertStudent(session, student);
+		
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;	
+	}
+
+	@Override
+	public int insertStudent(Map<String, String> map) {
+		SqlSession session = getSqlSession();
+		
+		int result = mybatisDAO.insertStudent(session, map);
+		
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;	
 	}
 
 }

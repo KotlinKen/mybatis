@@ -9,29 +9,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.mybatis.model.service.MybatisService;
 import com.kh.mybatis.model.service.MybatisServiceImpl;
+import com.kh.mybatis.model.vo.Student;
 
 /**
- * Servlet implementation class MybatisTestServlet1
+ * Servlet implementation class StudentEnrollEndServlet
  */
-@WebServlet("/test1.do")
-public class MybatisTestServlet1 extends HttpServlet {
+@WebServlet("/student/studentEnrollEnd.do")
+public class StudentEnrollEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MybatisService mybatisService = new MybatisServiceImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public StudentEnrollEndServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html, charset=utf-8");
+		String name = request.getParameter("studentName");
+		String email  = request.getParameter("studentTel");
+		String tel  = request.getParameter("studentEmail");
+		String addr  = request.getParameter("studentAddr");
 		
 		
-		int result = mybatisService.insertStudent();
-		System.out.println("test");
-		String msg = result > 0 ? "test1 succed" : "test1 faild ";
+		Student student = new Student(name, email, tel, addr);
 		
-		response.getWriter().append("Served at: ")
-							.append(request.getContextPath())
-							.append("<br>"+msg);
+		
+		
+		int result = mybatisService.insertStudent(student);
+		
 	}
 
 	/**

@@ -7,31 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.mybatis.model.service.MybatisService;
-import com.kh.mybatis.model.service.MybatisServiceImpl;
-
 /**
- * Servlet implementation class MybatisTestServlet1
+ * Servlet implementation class StudentEnrollServlet
  */
-@WebServlet("/test1.do")
-public class MybatisTestServlet1 extends HttpServlet {
+@WebServlet("/student/studentEnroll.do")
+public class StudentEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private MybatisService mybatisService = new MybatisServiceImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public StudentEnrollServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html, charset=utf-8");
-		
-		
-		int result = mybatisService.insertStudent();
 		System.out.println("test");
-		String msg = result > 0 ? "test1 succed" : "test1 faild ";
 		
-		response.getWriter().append("Served at: ")
-							.append(request.getContextPath())
-							.append("<br>"+msg);
+		request.getRequestDispatcher("/WEB-INF/views/mybatis/studentEnroll.jsp").forward(request, response);;
+		
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

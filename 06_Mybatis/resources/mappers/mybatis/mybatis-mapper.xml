@@ -4,4 +4,14 @@
 	<insert id="test1">
 		insert into student values(seq_student.nextval, '김률민', '01012341234', 'ryulmin@naver.com', '서울시 송파구', default)
 	</insert>
+	<insert id="test2" parameterType="string">
+		insert into student values(seq_student.nextval, #{name}, '01012341234', 'ryulmin@naver.com', '서울시 송파구', default)
+	</insert>
+	<insert id="insertStudent1" parameterType="student">
+		insert into student values(seq_student.nextval, #{studentName}, #{studentTel}, #{studentEmail}, #{studentAddr}, default)
+	</insert>	
+	
+	<insert id="insertStudent2" parameterType="map">
+		insert into student values(seq_student.nextval, #{studentName}, #{studentTel}, #{studentEmail}, #{studentAddr}, default)
+	</insert>	
 </mapper>
