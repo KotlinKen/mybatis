@@ -21,9 +21,16 @@
 	<select id="selectStudentCount" resultType="_int">
 		select count(*) from student
 	</select>	
-	
-	
 	<select id="selectStudentName" parameterType="_int" resultType="string">
 		select studentName from student where studentNo = #{studentNo}
 	</select>
+	<select id="selectStudentOne" parameterType="_int" resultType="student">
+		select * from student where studentNo = #{studentNo}
+	</select>
+	<delete id="deleteOne" parameterType="_int" >
+		delete from student where studentNo = #{studentNo}
+	</delete>
+	
+	
+	
 </mapper>

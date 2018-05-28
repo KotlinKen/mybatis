@@ -136,4 +136,31 @@ public class MybatisServiceImpl implements MybatisService {
 		return studentName;	
 	}
 
+	@Override
+	public int deleteOne(int studentNo) {
+		SqlSession session = getSqlSession();
+		System.out.println(studentNo);
+		int result = mybatisDAO.deleteOne(session, studentNo);
+		
+		
+		
+		if( result > 0 )
+			session.commit();
+		else
+			session.rollback();
+		session.close();
+		
+		return result;
+	}
+
+	@Override
+	public Student selectStudentOne(int studentNo) {
+		SqlSession session = getSqlSession();
+		
+		Student s = mybatisDAO.selectStudentOne(session, studentNo);
+		session.close();
+		
+		return s;	
+	}
+
 }

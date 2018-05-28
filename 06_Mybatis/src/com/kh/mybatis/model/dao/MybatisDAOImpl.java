@@ -69,4 +69,16 @@ public class MybatisDAOImpl implements MybatisDAO {
 		return session.selectOne("mybatis.selectStudentName", studentNo);
 	}
 
+	@Override
+	public int deleteOne(SqlSession session, int studentNo) {
+		return session.delete("mybatis.deleteOne", studentNo);
+	}
+
+	@Override
+	public Student selectStudentOne(SqlSession session, int studentNo) {
+
+		return session.selectOne("mybatis.selectStudentOne", studentNo);
+
+	}
+
 }
