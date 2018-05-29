@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
-
-   <environments default="development">
-      <environment id="development">
-         <transactionManager type="JDBC"/>
-         <dataSource type="POOLED">
-            <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-            <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-            <property name="username" value="mybatis"/>
-            <property name="password" value="mybatis"/>
-         </dataSource>
-      </environment>
-   </environments>
-   <mappers>
-      <!-- db에 전송할 쿼리문을 담은 mapper 파일들을 등록 -->
-      <mapper resource="/mappers/mybatis/mybatis-mapper.xml"/>
-   </mappers>
-
+	<typeAliases>
+		<typeAlias type="com.kh.mybatis.model.vo.Student" alias="student"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+				<property name="username" value="mybatis"/>
+				<property name="password" value="mybatis"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- db에 전송할 퀄문을 담은 mapper파일들을 등록함 -->
+		<mapper resource="/mappers/mybatis/mybatis-mapper.xml"/>
+		<mapper resource="/mappers/mybatis/emp-mapper.xml"/>
+		
+	</mappers>
 </configuration>
-
-
-

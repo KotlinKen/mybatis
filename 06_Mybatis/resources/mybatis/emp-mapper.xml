@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="emp">
+<!-- 전역을 검사한다 -->
+	<select id="selectMapList" resultMap="search">
+	select * from KH.employee
+	</select>
+	<!-- select의 resultMap의 이름이 resultMap에 들어와야한다 -->
+	<resultMap type="map" id="search">
+		<!-- <result column="studentNo" property="studentNo" />
+		<result column="studentName" property="studentName" />
+		<result column="studentTel" property="studentTel" />
+		<result column="studentEmail" property="studentEmail" />
+		<result column="studentAddr" property="studentAddr" />
+		<result column="regDate" property="regDate" /> -->
+	</resultMap>
+	<select id="search1" resultMap="search">
+		select * from KH.employee where ${searchType} like '%'||#{searchKeyword}||'%'
+	</select>
+	<select id="search2" resultMap="search">
+		SELECT EMP.* FROM (SELECT DECODE(SUBSTR(EMP_NO, 8, 1), '1', '남', '3', '남', '여') AS GENDER, KH.* FROM KH.EMPLOYEE KH) EMP 
+		<where>
+			<if  test= 'searchType != null' >
+			${searchType} like '%'||#{searchKeyword}||'%'
+			</if>
+			<if  test= "gender != null" >
+			AND GENDER LIKE '${gender}'
+			</if>
+		</where>
+		
+	</select>
+</mapper>
