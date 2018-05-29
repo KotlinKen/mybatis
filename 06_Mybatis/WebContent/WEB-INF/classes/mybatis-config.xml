@@ -18,6 +18,7 @@
    <mappers>
       <!-- db에 전송할 쿼리문을 담은 mapper 파일들을 등록 -->
       <mapper resource="/mappers/mybatis/mybatis-mapper.xml"/>
+      <mapper resource="/mappers/emp/emp-mapper.xml"/>
    </mappers>
 
 </configuration>

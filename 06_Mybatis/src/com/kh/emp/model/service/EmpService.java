@@ -7,4 +7,6 @@ public interface EmpService {
 
 	List<Map<String, String>> search0();
 
+	List<Map<String, String>> search1(Map<String, String> map);
+
 }
