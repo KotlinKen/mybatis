@@ -3,6 +3,7 @@ package com.kh.mybatis.model.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -161,6 +162,16 @@ public class MybatisServiceImpl implements MybatisService {
 		session.close();
 		
 		return s;	
+	}
+
+	@Override
+	public List<Student> selectList() {
+		SqlSession session = getSqlSession();
+		
+		List<Student> list = mybatisDAO.selectList(session);
+		session.close();
+		
+		return list;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.kh.mybatis.model.dao;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -81,6 +82,12 @@ public class MybatisDAOImpl implements MybatisDAO {
 		
 		//resultMap을 이용한 StudentVO가져오기
 		return session.selectOne("mybatis.selectStudentOne_", studentNo);
+	}
+
+	@Override
+	public List<Student> selectList(SqlSession session) {
+		return session.selectList("mybatis.selectList");
+
 	}
 
 }

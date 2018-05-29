@@ -1,6 +1,7 @@
 package com.kh.mybatis.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.kh.mybatis.model.vo.Student;
@@ -15,4 +16,5 @@ public interface MybatisService {
 	String selectStudentName(int studentNo);
 	int deleteOne(int studentNo);
 	Student selectStudentOne(int studentNo);
+	List<Student> selectList();
 }

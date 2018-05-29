@@ -1,6 +1,7 @@
 package com.kh.mybatis.model.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,5 +27,7 @@ public interface MybatisDAO {
 	int deleteOne(SqlSession session, int studentNo);
 
 	Student selectStudentOne(SqlSession session, int studentNo);
+
+	List<Student> selectList(SqlSession session);
 
 }
