@@ -17,4 +17,5 @@ public interface MybatisService {
 	int deleteOne(int studentNo);
 	Student selectStudentOne(int studentNo);
 	List<Student> selectList();
+	List<Map<String, String>> selectMapList();
 }

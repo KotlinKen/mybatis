@@ -174,4 +174,14 @@ public class MybatisServiceImpl implements MybatisService {
 		return list;
 	}
 
+	@Override
+	public List<Map<String, String>> selectMapList() {
+		SqlSession session = getSqlSession();
+		
+		List<Map<String, String>> mapList = mybatisDAO.selectMapList(session);
+		session.close();
+		
+		return mapList;
+	}
+
 }

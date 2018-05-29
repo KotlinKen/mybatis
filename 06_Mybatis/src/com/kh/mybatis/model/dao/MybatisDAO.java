@@ -30,4 +30,6 @@ public interface MybatisDAO {
 
 	List<Student> selectList(SqlSession session);
 
+	List<Map<String, String>> selectMapList(SqlSession session);
+
 }

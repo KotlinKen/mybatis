@@ -54,9 +54,21 @@
 	
 	
 	<select id="selectList" resultType="student">
-	select * from student order by regdate desc
+		select * from student order by regdate desc
 	</select>
 	
+	<select id="selectMapList" resultMap="selectMapList">
+		SELECT STUDENTNO AS "STUDENT NO", STUDENTNAME AS "STUDENT NAME", STUDENTTEL AS "STUDENT TEL", STUDENTADDR AS "STUDENT ADDR", REGDATE AS "REG DATE" FROM STUDENT ORDER BY REGDATE DESC
+	</select>
+	
+	<resultMap type="map" id="selectMapList">
+<!--    		<result column="studentno" property="studentNo"/>
+		<result column="studentname" property="studentName"/>
+		<result column="studenttel" property="studentTel"/>
+		<result column="studentemail" property="studentEmail"/>
+		<result column="studentaddr" property="studentAddr"/>
+		<result column="regdate" property="regDate"/>  -->
+	</resultMap>
 	
 	<delete id="deleteOne" parameterType="_int" >
 		delete from student where studentNo = #{studentNo}

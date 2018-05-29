@@ -2,6 +2,7 @@ package com.kh.mybatis.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +32,15 @@ public class StudentSelectListServlet extends HttpServlet {
 		//1.업무로직
 		List<Student> list = mybatisService.selectList();
 		System.out.println("list@controller = " + list);
+		
+		List<Map<String, String>> mapList = mybatisService.selectMapList();
+		System.out.println("mapList@controller = " + mapList);
+		
+		
+		
 		//2. view단위임
 		request.setAttribute("list", list);
+		request.setAttribute("mapList", mapList);
 		request.getRequestDispatcher("/WEB-INF/views/mybatis/selectList.jsp").forward(request, response);
 		}
 		

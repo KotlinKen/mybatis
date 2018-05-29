@@ -90,4 +90,9 @@ public class MybatisDAOImpl implements MybatisDAO {
 
 	}
 
+	@Override
+	public List<Map<String, String>> selectMapList(SqlSession session) {
+		return session.selectList("mybatis.selectMapList");
+	}
+
 }
