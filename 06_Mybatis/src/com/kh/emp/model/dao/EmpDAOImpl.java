@@ -17,4 +17,9 @@ public class EmpDAOImpl implements EmpDAO {
 		return session.selectList("emp.search1", map);
 	}
 
+	@Override
+	public List<Map<String, String>> search2(SqlSession session, Map<String, String> map) {
+		return session.selectList("emp.search2", map);
+	}
+
 }

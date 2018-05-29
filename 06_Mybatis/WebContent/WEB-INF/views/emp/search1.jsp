@@ -15,17 +15,25 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 </head>
 <body>
 <div id="emp-container">
-<h2>사원정보</h2>
+<h2>사원정보 복수검색</h2>
 <div id="search-container">
-	<form action="search1.kh">
-		<select name="searchType" class="searchType" required>
+	<form action="search2.kh">
+		<select name="searchType" class="searchType">
 			<option value="" disabled selected>검색</option>
 			<option value="emp_id" ${'emp_id' eq param.searchType ? "selected" : "" }>사번</option>
 			<option value="emp_name" ${'emp_name' eq param.searchType ? "selected" : "" }>사원명</option>
 			<option value="email" ${'email' eq param.searchType ? "selected" : "" }>이메일</option>
 			<option value="phone" ${'phone' eq param.searchType ? "selected" : "" }>전화번호</option>
 		</select>
-		<input type="search" name="searchKeyword"class="searchType" required />
+		<input type="search" name="searchKeyword"class="searchType" />
+		<!-- 성별 라디오 추가	 -->		
+		<input type="radio" name="gender" id="man" value="남" />
+		<label for="man">남성</label>
+		
+		<input type="radio" name="gender" id="woman" value="여" />
+		<label for="woman">여성</label>
+		&nbsp;
+		
 		<input type="submit" value="검색" class="searchType"/>
 	</form>
 </div>
@@ -36,6 +44,7 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 		<th>사번</th>
 		<th>사원명</th>
 		<th>주민번호</th>
+		<th>성별</th>
 		<th>이메일</th>
 		<th>전화번호</th>
 		<th>부서코드</th>
@@ -54,6 +63,7 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 				<td>${emp["EMP_ID"]}</td>
 				<td>${emp["EMP_NAME"]}</td>
 				<td>${fn:substring(emp["EMP_NO"], 0, 8).concat("******")}</td>
+				<td>${emp["GENDER"]}</td>
 				<td>${emp["EMAIL"]}</td>
 				<td>${emp["PHONE"]}</td>
 				<td>${emp["DEPT_CODE"]}</td>
