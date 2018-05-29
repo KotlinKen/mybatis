@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
 <!DOCTYPE html>
 <html>
@@ -117,16 +116,24 @@ $("#btn-ajax-search").click(function(){
 		type : "post",
 		dataType : "json",
 		success : function(data){
+
 			
 			
+			if(data != null){
+				
+		
+				
 			var html = "<tr><td>번호</td><td>이름</td><td>전화</td><td>이메일</td><td>주소</td><td>등록일</td></tr><tr>";
+			
 			for(i in data){
 				html += "<td>" + data[i]  +"</td>";
-				
 			}
-			html += "</tr>";
+				html += "</tr>";
+				student.html(html);
+			}else{
+				
+			}			
 			
-			student.html(html);
 			
 		}
 	});
