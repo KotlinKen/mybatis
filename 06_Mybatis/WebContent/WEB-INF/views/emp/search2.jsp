@@ -25,7 +25,16 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 			<option value="email" ${'email' eq param.searchType ? "selected" : "" }>이메일</option>
 			<option value="phone" ${'phone' eq param.searchType ? "selected" : "" }>전화번호</option>
 		</select>
+		
 		<input type="search" name="searchKeyword"class="searchType" required />
+		<!-- 성별 라디오 추가	 -->		
+		<input type="radio" name="gender" id="man" value="남" />
+		<label for="man">남성</label>
+		
+		<input type="radio" name="gender" id="woman" value="여" />
+		<label for="woman">여성</label>
+		&nbsp;
+		
 		<input type="submit" value="검색" class="searchType"/>
 	</form>
 </div>

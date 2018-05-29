@@ -3,20 +3,13 @@
 <mapper namespace="emp">
  
 	<resultMap type="map" id="search"></resultMap>
-		
-		
 	<select id="search0" resultMap="search">
 		select * from kh.employee
 	</select>
-	
-	
- 
 	<select id="search1" resultMap="search">
 		select * from kh.employee
 		where ${searchType} like '%'||#{searchKeyword}||'%'
 	</select>
-	
-	
 	<select id="search2" resultMap="search">
 		SELECT EMP.* FROM (SELECT DECODE(SUBSTR(EMP_NO, 8, 1), '1', '남', '3', '남', '여') AS GENDER, KH.* FROM KH.EMPLOYEE KH) EMP WHERE GENDER LIKE '${gender}' AND ${searchType} like '%'||#{searchKeyword}||'%'
 	</select>
