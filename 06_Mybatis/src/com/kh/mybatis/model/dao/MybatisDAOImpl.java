@@ -76,9 +76,11 @@ public class MybatisDAOImpl implements MybatisDAO {
 
 	@Override
 	public Student selectStudentOne(SqlSession session, int studentNo) {
-
-		return session.selectOne("mybatis.selectStudentOne", studentNo);
-
+		//resultType을 이용한 StudentVO가져오기 
+		//return session.selectOne("mybatis.selectStudentOne", studentNo);
+		
+		//resultMap을 이용한 StudentVO가져오기
+		return session.selectOne("mybatis.selectStudentOne_", studentNo);
 	}
 
 }

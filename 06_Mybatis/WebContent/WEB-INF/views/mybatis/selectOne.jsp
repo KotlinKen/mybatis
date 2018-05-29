@@ -120,18 +120,16 @@ $("#btn-ajax-search").click(function(){
 			
 			
 			if(data != null){
+				var html = "<tr><td>번호</td><td>이름</td><td>전화</td><td>이메일</td><td>주소</td><td>등록일</td></tr><tr>";
 				
-		
-				
-			var html = "<tr><td>번호</td><td>이름</td><td>전화</td><td>이메일</td><td>주소</td><td>등록일</td></tr><tr>";
-			
-			for(i in data){
-				html += "<td>" + data[i]  +"</td>";
-			}
-				html += "</tr>";
-				student.html(html);
+				for(i in data){
+					html += "<td>" + data[i]  +"</td>";
+				}
+					html += "</tr>";
+					student.html(html);
 			}else{
-				
+				var html = "값이 없습니다.";
+				student.html(html);
 			}			
 			
 			
