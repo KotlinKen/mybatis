@@ -22,6 +22,24 @@
 			<if test="gender != null and gender !='' ">
 			AND GENDER LIKE '${gender}'
 			</if>
+			<if test="salary != null and salary !='' ">
+				<if test="salary_le_ge eq 'le'">
+					AND salary <![CDATA[<=]]> ${salary}
+				</if>
+				<if test="salary_le_ge eq 'ge'">
+					AND salary <![CDATA[>=]]> ${salary}
+				</if>
+			
+			</if>
+			<if test="hire_date != null and hire_date !='' ">
+				<if test="hire_date_le_ge eq 'le'">
+					AND hire_date <![CDATA[<=]]> #{hire_date}
+				</if>
+				<if test="hire_date_le_ge eq 'ge'">
+					AND hire_date <![CDATA[>=]]> #{hire_date}
+				</if>
+			
+			</if>
 		</trim>
 	
 	</select>

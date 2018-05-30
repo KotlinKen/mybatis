@@ -18,7 +18,7 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 <h2>사원정보</h2>
 <div id="search-container">
 	<form action="search2.kh">
-		<select name="searchType" class="searchType" required>
+		<select name="searchType" class="searchType">
 			<option value="" disabled selected>검색</option>
 			<option value="emp_id" ${'emp_id' eq param.searchType ? "selected" : "" }>사번</option>
 			<option value="emp_name" ${'emp_name' eq param.searchType ? "selected" : "" }>사원명</option>
@@ -26,7 +26,7 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 			<option value="phone" ${'phone' eq param.searchType ? "selected" : "" }>전화번호</option>
 		</select>
 		
-		<input type="search" name="searchKeyword"class="searchType" required />
+		<input type="search" name="searchKeyword" class="searchType" />
 		<!-- 성별 라디오 추가	 -->		
 		<input type="radio" name="gender" id="man" value="남"  ${'남' eq param.gender ? "checked" : "" }/>
 		<label for="man">남성</label>
@@ -34,7 +34,26 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 		<input type="radio" name="gender" id="woman" value="여" ${'여' eq param.gender ? "checked" : "" } />
 		<label for="woman">여성</label>
 		&nbsp;
+		<br />
+		<!-- 급여기준 추가 -->
+		<input type="number" name="salary" class="searchType" min = "0" step ="500" value="${param.salary}"/>
+		<input type="radio" name="salary_le_ge" id="salary_le" class="searchType" value="le" ${param.salary_le_ge eq "le" ? "checked" : "" }/>
+		<label for="salary_le">이하</label>
 		
+		<input type="radio" name="salary_le_ge" id="salary_ge" class="searchType" value="ge" ${param.salary_le_ge eq "ge" ? "checked" : "" } />
+		<label for="salary_ge">이상</label>
+		
+		<!-- @실습문제 : 입사일 기준 추가 -->
+		입사일 : 
+		<input type="date" name="hire_date" class="searchType" />
+		<input type="radio" name="hire_date_le_ge" value="le" id="hire_date_le" />
+		<label for="hire_date_le">이전</label>
+		
+		<input type="radio" name="hire_date_le_ge" value="ge" id="hire_date_ge" />
+		<label for="hire_date_ge">이후</label>
+		
+		
+		<br />
 		<input type="submit" value="검색" class="searchType"/>
 	</form>
 </div>
@@ -92,6 +111,15 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 </table>
 
 </div>
+<script>
 
+$("input[name=gender]").click(function(){
+	console.log(this.checked);
+	console.log(this);
+	$("input[name=gender]").attr("checked", $("input[name=gender]").attr("checked"));
+	
+})
+
+</script>
 </body>
 </html>

@@ -42,13 +42,22 @@ public class EmpSearch2Servlet extends HttpServlet {
 		String searchType = request.getParameter("searchType");
 		String searchKeyword = request.getParameter("searchKeyword");
 		String gender = request.getParameter("gender");
-		
+		//급여기준 추가
+		String salary = request.getParameter("salary");
+		String salary_le_ge = request.getParameter("salary_le_ge");
+		//고용일기준 추가 
+		String hire_date = request.getParameter("hire_date");
+		String hire_date_le_ge = request.getParameter("hire_date_le_ge");
 		
 		Map<String, String> map = new HashMap<>();
 		
 		map.put("searchType", searchType);
 		map.put("searchKeyword", searchKeyword);
 		map.put("gender", gender);
+		map.put("salary", salary);
+		map.put("salary_le_ge", salary_le_ge);
+		map.put("hire_date", hire_date);
+		map.put("hire_date_le_ge", hire_date_le_ge);
 		System.out.println("map@controller="+map);
 		
 		
