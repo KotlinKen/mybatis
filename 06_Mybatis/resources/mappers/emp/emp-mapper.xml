@@ -56,4 +56,8 @@
 	
 	</select>
 	
+	<select id="search3" resultMap="search">
+	
+	</select>
+	
 </mapper>
