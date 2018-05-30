@@ -11,4 +11,6 @@ public interface EmpService {
 
 	List<Map<String, String>> search2(Map<String, String> map);
 
+	List<Map<String, String>> search3(Map<String, String[]> map);
+
 }

@@ -38,8 +38,20 @@
 				<if test="hire_date_le_ge eq 'ge'">
 					AND hire_date <![CDATA[>=]]> #{hire_date}
 				</if>
-			
 			</if>
+			 <choose>
+			 	<when test="hire_date_le_ge_ eq 'le'">
+			 		AND hire_date <![CDATA[<=]]> #{hire_date}
+			 	</when>
+			 	<when test="hire_date_le_ge_ eq 'ge'">
+			 		AND hire_date <![CDATA[>=]]> #{hire_date}
+			 	</when>
+			 	<otherwise>
+			 	
+			 	</otherwise>
+			 </choose>
+			
+			
 		</trim>
 	
 	</select>

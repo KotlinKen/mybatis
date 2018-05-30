@@ -48,4 +48,16 @@ public class EmpServiceImpl implements EmpService {
 		return list;
 	}
 
+
+	@Override
+	public List<Map<String, String>> search3(Map<String, String[]> map) {
+		
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		List<Map<String, String>> list = empDAO.search3(session, map);
+		System.out.println(list);
+		session.close();
+		
+		return list;
+	}
+
 }

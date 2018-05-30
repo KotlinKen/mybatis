@@ -12,5 +12,7 @@ public interface EmpDAO {
 	List<Map<String, String>> search1(SqlSession session, Map<String, String> map);
 
 	List<Map<String, String>> search2(SqlSession session, Map<String, String> map);
+
+	List<Map<String, String>> search3(SqlSession session, Map<String, String[]> map);
 	
 }

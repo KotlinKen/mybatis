@@ -113,10 +113,10 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 </div>
 <script>
 
-$("input[name=gender]").click(function(){
+$("#man").click(function(){
 	console.log(this.checked);
 	console.log(this);
-	$("input[name=gender]").attr("checked", $("input[name=gender]").attr("checked"));
+	$(this).attr("checked", false);
 	
 })
 
