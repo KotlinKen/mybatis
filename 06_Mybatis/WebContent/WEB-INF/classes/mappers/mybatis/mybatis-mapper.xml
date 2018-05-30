@@ -1,7 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mybatis">
-	<insert id="insertStudent">
-		insert into student values(seq_student.nextval, '홍길동', '01012341234', 'honggd@naver.com', '서울시 강남구', default)
+	<insert id="test1">
+		insert into student values
+				(seq_student.nextval, '장익순', 
+				'01035203923', 'jjsk109@naver.com', 
+				'서울시 강남구', default)
 	</insert>
+	<insert id="test2" parameterType="string">
+		insert into student values
+				(seq_student.nextval
+				, #{name}
+				, '01035203923'
+				, 'jjsk109@naver.com'
+				, '서울시 강남구', default)
+	
+	</insert>
+	<!-- useGeneratedKeys="true" -->
+	<insert id="test3" parameterType="student">
+		insert into student values
+				(seq_student.nextval
+				, #{studentName}
+				, #{studentTel}
+				, #{studentEmail}
+				, #{studentAddr}
+				, default)
+				<!-- get에 맞춰야 함 -->
+	
+	</insert>
+	<insert id="test4" parameterType="map">
+		insert into student values
+				(seq_student.nextval
+				, #{studentName}
+				, #{studentTel}
+				, #{studentEmail}
+				, #{studentAddr}
+				, default)
+	</insert>
+	<insert id="test5" parameterType="hashmap">
+		insert into student values
+				(seq_student.nextval
+				, #{student.studentName}
+				, #{student.studentTel}
+				, #{student.studentEmail}
+				, #{student.studentAddr}
+				, default)
+	</insert>
+	<select id="selectStudentCount" resultType="_int">
+		select count(*) from student
+	</select>
+	
+	<select id="selectStudentName" resultType="string" parameterType="_int">
+		select studentName from student where studentNo = #{studentNo}
+	</select>
+	
+	<delete id="deleteStudent" parameterType="_int">
+		delete from student where studentNo = #{studentNo}
+	</delete>
+	
+	<select id="searchStudent" parameterType="_int" resultType="student">
+		select studentNo, studentName,studentTel,studentEmail,studentAddr,regDate from student where studentNo = #{studentNo}
+	</select>
+	
+	<select id="searchStudent_" resultMap="searchStudent_">
+		select studentNo, studentName,studentTel,studentEmail,studentAddr,regDate from student where studentNo = #{studentNo}
+	</select>
+	<resultMap type="student" id="searchStudent_">
+<!-- 이름이 다를 경우에 좋다 -->
+<!-- 		<result column="studentNo" property="studentNo" />
+		<result column="studentName" property="studentName" />
+		<result column="studentTel" property="studentTel" />
+		<result column="studentEmail" property="studentEmail" />
+		<result column="studentAddr" property="studentAddr" />
+		<result column="regDate" property="regDate" /> -->
+	</resultMap>
+	<!-- list가 아닌 단일형 객체에 넣어야 한다 -->
+	<select id="selectList" resultType="student">
+		select * from student order by studentNo 
+	</select>
+	
+	<select id="selectMapList" resultMap="selectMapList">
+		select STUDENTNO AS "STUDENT NO",
+    STUDENTNAME AS "STUDENT NAME",
+    STUDENTTEL AS "STUDENT TEL",
+    STUDENTEMAIL AS "STUDENT EMAIL",
+    STUDENTADDR AS "STUDENT ADDR",
+    REGDATE AS "REG DATE"
+    FROM  STUDENT ORDER BY REGDATE DESC
+	</select>
+	<!-- select의 id가 resultMap에 들어와야한다 -->
+	<resultMap type="map" id="selectMapList">
+		<!-- <result column="studentNo" property="studentNo" />
+		<result column="studentName" property="studentName" />
+		<result column="studentTel" property="studentTel" />
+		<result column="studentEmail" property="studentEmail" />
+		<result column="studentAddr" property="studentAddr" />
+		<result column="regDate" property="regDate" /> -->
+	</resultMap>
 </mapper>
