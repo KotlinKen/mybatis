@@ -57,7 +57,16 @@
 	</select>
 	
 	<select id="search3" resultMap="search">
-	
+		SELECT A.* FROM KH.EMPLOYEE A 
+		LEFT JOIN KH.DEPARTMENT B ON A.DEPT_CODE = B.DEPT_ID
+		LEFT JOIN KH.JOB C ON A.JOB_CODE = C.JOB_CODE
+		WHERE 1 = 1
+		<if test="job_codeArr != null ">
+			AND A.JOB_CODE IN 
+			<foreach collection="job_codeArr" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
 	</select>
 	
 </mapper>
