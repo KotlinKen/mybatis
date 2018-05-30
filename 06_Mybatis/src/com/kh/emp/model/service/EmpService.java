@@ -13,4 +13,8 @@ public interface EmpService {
 
 	List<Map<String, String>> search3(Map<String, String[]> map);
 
+	List<Map<String, String>> selectEmpList(int cPage, int numPerPage);
+
+	int search3Count(Map<String, String[]> map);
+
 }

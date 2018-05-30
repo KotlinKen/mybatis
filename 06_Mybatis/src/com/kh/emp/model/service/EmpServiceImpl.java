@@ -60,4 +60,26 @@ public class EmpServiceImpl implements EmpService {
 		return list;
 	}
 
+
+	@Override
+	public List<Map<String, String>> selectEmpList(int cPage, int numPerPage) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		List<Map<String, String>> list = empDAO.selectEmpList(session, cPage, numPerPage);
+		System.out.println(list);
+		session.close();
+		
+		return list;
+	}
+
+
+	@Override
+	public int search3Count(Map<String, String[]> map) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int totalCount = empDAO.selectEmpList(session, map);
+		session.close();
+		
+		return totalCount;
+		
+	}
+
 }

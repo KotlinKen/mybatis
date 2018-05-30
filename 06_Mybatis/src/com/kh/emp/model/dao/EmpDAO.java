@@ -14,5 +14,9 @@ public interface EmpDAO {
 	List<Map<String, String>> search2(SqlSession session, Map<String, String> map);
 
 	List<Map<String, String>> search3(SqlSession session, Map<String, String[]> map);
+
+	List<Map<String, String>> selectEmpList(SqlSession session, int cPage, int numPerPage);
+
+	int selectEmpList(SqlSession session, Map<String, String[]> map);
 	
 }

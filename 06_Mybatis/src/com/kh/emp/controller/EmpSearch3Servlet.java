@@ -37,18 +37,26 @@ public class EmpSearch3Servlet extends HttpServlet {
 		//1.파라미터핸들링
 		
 		String[] job_codeArr = request.getParameterValues("job_code");
+		String[] dept_codeArr = request.getParameterValues("dept_code");
 		
-		
+		System.out.println("tetst"+dept_codeArr);
 		
 		//2.업무로직
 		
 		Map<String, String[]> map = new HashMap<>();
 		map.put("job_codeArr", job_codeArr);
+		map.put("dept_codeArr", dept_codeArr);
+		
+		int totalCount = 0; 
+		List<Map<String,String>> list = empService.search3(map);
+
+		totalCount = empService.search3Count(map);
+		
 		System.out.println("RYULMIN CALL - map@controller = " + map);
-		List<Map<String,String>>list = empService.search3(map);
 		System.out.println("RYULMIN CALL - list@controller = " + list);
 		//3.view단 처리위임
 		request.setAttribute("list", list);
+		request.setAttribute("totalCount", totalCount);
 		
 		request.getRequestDispatcher("/WEB-INF/views/emp/search3.jsp").forward(request, response);
 	}
