@@ -17,7 +17,7 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 <div id="emp-container">
 <h2>사원정보</h2>
 <div id="search-container">
-	<form action="search1.kh">
+	<form action="search2.kh">
 		<select name="searchType" class="searchType" required>
 			<option value="" disabled selected>검색</option>
 			<option value="emp_id" ${'emp_id' eq param.searchType ? "selected" : "" }>사번</option>
@@ -28,10 +28,10 @@ table td, table th{border:1px solid #333; padding:10px; font-size:24px; }
 		
 		<input type="search" name="searchKeyword"class="searchType" required />
 		<!-- 성별 라디오 추가	 -->		
-		<input type="radio" name="gender" id="man" value="남" />
+		<input type="radio" name="gender" id="man" value="남"  ${'남' eq param.gender ? "checked" : "" }/>
 		<label for="man">남성</label>
 		
-		<input type="radio" name="gender" id="woman" value="여" />
+		<input type="radio" name="gender" id="woman" value="여" ${'여' eq param.gender ? "checked" : "" } />
 		<label for="woman">여성</label>
 		&nbsp;
 		
